@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    *{
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
+    body{
+        height: 100vh;
+    }
+    .container{
+        border: 2px solid #3498db;
+        border-radius: 10px;
+        height: 380px;
+        width: 30%;
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start;
+        align-items: center;
+        gap: 20px;
+        padding: 20px; /* Added padding for better spacing */
+    background-color: #ecf0f1; /* Background color */
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    margin: 0 auto;
+    }
+    body{
+         background-color: rgba(173, 216, 230, 0.7);
+    }
+    h1 {
+    font-size: 24px; /* Font size for the heading */
+    font-family: 'Comic Sans MS', cursive;
+    color: #333333; /* Text color */
+}
+
+button {
+    height: 50px;
+    width: 120px; /* Wider button for better visibility */
+    font-size: 16px; /* Font size for the button text */
+    font-family: 'Arial', sans-serif; /* Choose a readable font */
+    color: #ffffff; /* Text color */
+    background-color: #3498db; /* Background color */
+    border: none; /* Remove default button border */
+    border-radius: 5px; /* Border radius for rounded corners */
+    cursor: pointer; /* Add pointer cursor on hover */
+}
+.button:hover {
+    background-color: #2980b9; /* Darker color on hover */
+}
+.img {
+    border: 2px solid #3498db; /* Border color */
+    border-radius: 5px; /* Border radius for rounded corners */
+    height: 140px;
+    width: 50%;
+    overflow: hidden; /* Hide overflow for a cleaner look */
+}
+
+.img img {
+   height: 100%;
+   width: 100%;
+    object-fit: cover; /* Maintain image aspect ratio */
+}
+
+    .nav{
+        padding-left: 16px;
+        padding-right: 176px;
+        height:7%;
+        width: 100%;
+        border: 1px solid green;
+        display: flex;
+        justify-content: flex-end;
+        gap: 80px;
+        align-items: center;
+        font-family: 'Comic Sans MS', cursive;
+        background-color:rgba(173, 216, 230, 0.7);
+        margin-bottom: 100px;
+        
+    }
+    a{
+        color: #333333
+    }
+    
+.nav a:hover {
+    background-color: #FFFFFF; /* Change to a color that stands out */
+    color: #333333; /* Change to a color that 
+    contrasts well */
+
+
+}
+.nav a {
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+@media only screen and (max-width: 767px) {
+
+.nav{
+padding-right: 46px;
+}
+button{
+    height: 30px;
+    width: 80px; /* Wider button for better visibility */
+    font-size: 12px; 
+}
+h1{
+    font-size: 18px;
+}
+}
+@media only screen and (max-width: 480px){
+    .nav{
+        justify-content: space-between;
+    }
+    
+button{
+    height: 30px;
+    width: 80px; /* Wider button for better visibility */
+    font-size: 12px; 
+}
+h1{
+    font-size: 18px;
+}
+   
+} 
+</style>
+<body>
+    <div class="nav">
+        <a href="lisa.html">HOME</a>
+        <a href="gallery.html">GALLERY</a>
+    
+        <a href="quiz.html">FUN</a>
+    </div>
+    <div class="container">
+        <div class="img">
+            <img src="lisa3.jpg" />
+        </div>
+        <h1>LETS SEE HOW MUCH YOU KNOW LISA</h1>
+        <button> <a  href="fun.html">CLICK ME</a></button>
+    </div>
+</body>
+</html>

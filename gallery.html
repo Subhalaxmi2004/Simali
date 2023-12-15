@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=<device-width>, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: sans-serif;
+        }
+        input{
+            display: none;
+        }
+        .container{
+            width: 100%;
+            text-align: center;
+        }
+        h1{
+            font-weight: normal;
+            font-size: 35px;
+            position: relative;
+            margin: 40px 0;
+        }
+        h1::before{
+            content: '';
+            position: absolute;
+            width: 100px;
+            height: 3px;
+            background-color: crimson;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            animation: animate 4s linear infinite;
+        }
+        @keyframes animate{
+            0%{
+                width: 100px;
+            }
+            50%{
+                width: 200px;
+            }
+            100%{
+                width: 100px;
+            }
+        }
+        .top-content{
+            background-color: rgb(243, 243, 243);
+            width: 90%;
+            margin: 0 auto 20px auto;
+            height: 60px;
+            display: flex;
+            align-items: center;
+            border-radius: 5px;
+            box-shadow: 3px 3px 3px lightgray;
+        }
+        h3{
+            height: 100%;
+            background-color: rgb(223, 223, 223);
+            line-height: 60px;
+            padding: 0px 50px;
+            color: white;
+        }
+        label{
+            display: inline-block;
+            height: 100%;
+            margin: 0 20px;
+            line-height: 60px;
+            font-size: 13px;
+            color: gray;
+            cursor: pointer;
+            transition: color .5s;
+        }
+        label:hover{
+            color: black;
+        }
+        .photo-gallery{
+            width: 90%;
+            margin: auto;
+            display: grid;
+            grid-template-columns: repeat(4,1fr);
+            grid-gap: 20px;
+        }
+        .pic{
+            position: relative;
+            height: 230px;
+            border-radius: 10px;
+            box-shadow: 3px 3px 5px lightgray;
+            cursor: pointer;
+            transition: .5s;
+        }
+        .pic img{
+            width: 100%;
+            height: 100%;
+            border-radius: 10px;
+        }
+        .pic::before{
+            content: "LISA'S GALLERY";
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%,-50%);
+            color: white;
+            font-size: 22px;
+            font-weight: bold;
+            width: 100%;
+            margin-top: -100px;
+            opacity: 0;
+            transition: .3s;
+            transition-delay: .2s;
+        }
+        .pic::after{
+            content:"" ;
+            position: absolute;
+            width: 100%;
+            bottom: 0;
+            left: 0;
+            border-radius: 10px;
+            height: 0;
+            transition: .3s;
+            background-color: rgba(0, 0, 0,0.4);
+        }
+        .pic:hover::after{
+            height: 100%;
+        }
+        .pic:hover::before{
+            margin-top: 0;
+            opacity: 1;
+        }
+        #check1:checked ~ .container .photo-gallery .pic{
+            opacity: 1;
+            transform: scale(1);
+            position: relative;
+            transition: .5s;
+        }
+        #check2:checked ~ .container .photo-gallery .family
+       {
+            opacity: 1;
+            transform: scale(1);
+            position: relative;
+        }
+        #check2:checked ~ .container .photo-gallery .place,
+        #check2:checked ~ .container .photo-gallery .child{
+            opacity: 1;
+            transform: scale(0);
+            position: absolute;
+            transition: 0s;
+        }
+        #check3:checked ~ .container .photo-gallery .child
+       {
+            opacity: 1;
+            transform: scale(1);
+            position: relative;
+        }
+        #check3:checked ~ .container .photo-gallery .family,
+        #check:checked ~ .container .photo-gallery .place{
+            opacity: 1;
+            transform: scale(0);
+            position: absolute;
+            transition: 0s;
+        }
+        #check4:checked ~ .container .photo-gallery .place
+       {
+            opacity: 1;
+            transform: scale(1);
+            position: relative;
+        }
+        #check4:checked ~ .container .photo-gallery .place,
+        #check4:checked ~ .container .photo-gallery .family{
+            opacity: 1;
+            transform: scale(0);
+            position: absolute;
+            transition: 0s;
+        }
+        .nav{
+        
+        height:50px;
+        width: 100%;
+        border: 1px solid green;
+        display: flex;
+        justify-content: flex-end;
+        gap: 80px;
+        align-items: center;
+        font-family: 'Comic Sans MS', cursive;
+        background-color:rgba(173, 216, 230, 0.7);
+        
+    }
+    a{
+        color: #333333
+    }
+    .nav a:hover {
+    background-color: #FFFFFF; /* Change to a color that stands out */
+    color: #333333; /* Change to a color that 
+    contrasts well */
+
+
+}
+.nav a {
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+        @media screen and (max-width: 480px){
+            .top-content{
+            
+            margin: 2px;
+            
+            box-shadow: 1px 1px 1px lightgray;
+        }
+        .nav{
+        justify-content: space-between;
+        gap: 10px;
+    }
+        h3{
+            height: 100%;
+            background-color: rgb(223, 223, 223);
+            line-height: 60px;
+            padding: 0px 10px;
+            color: white;
+        }
+        label{
+            margin: 0 5px;
+            line-height: 28px;
+            font-size: 13px;
+        }
+       
+        }
+    </style>
+    <body>
+        <div class="nav">
+            <a href="index.html">HOME</a>
+            <a href="gallery.html">GALLERY</a>
+        
+            <a href="quiz.html">FUN</a>
+        </div>
+    <input type ="radio" name="photos" id="check1" checked>
+    <input type ="radio" name="photos" id="check2">
+        <input type ="radio" name="photos" id="check3">
+    <input type ="radio" name="photos" id="check4">
+    <div class="container">
+        <h1> LISA'S  GALLERY</h1>
+        <div class="top-content">
+            <h3>photo gallery</h3>
+            <label for="check1">All </label>
+            <label for="check2">Room </label>
+            <label for="check3">Outside </label>
+            <label for="check4">Class</label>
+        </div>
+        <div class="photo-gallery">
+            <div class="pic place">
+                <img src="lisa.jpg" height="200px"/>
+            </div>
+            <div class="pic family">
+                <img src="room2.jpg" height="200px"/>
+            </div>
+            <div class="pic child">
+                <img src="class3.jpg" height="200px"/>
+            </div>
+            <div class="pic place">
+                <img src="lisa2.jpg" height="200px"/>
+            </div>
+            <div class="pic family">
+                <img src="room3.jpg" height="200px"/>
+            </div>
+            <div class="pic child">
+                <img src="class1.jpg" height="200px"/>
+            </div>
+            <div class="pic place">
+                <img src="lisa3.jpg" height="200px"/>
+            </div>
+            <div class="pic family">
+                <img src="room4.jpg" height="200px"/>
+            </div>
+            <div class="pic child">
+                <img src="class2.jpg" height="200px"/>
+            </div>
+            <div class="pic place">
+                <img src="lisa4.jpg" height="200px"/>
+            </div>
+            <div class="pic family">
+                <img src="room1.jpg" height="200px"/>
+            </div>
+            <div class="pic child">
+                <img src="class4.jpg" height="200px"/>
+            </div>
+            <div class="pic place">
+                <img src="lisa5.jpg" height="200px"/>
+            </div>
+            <div class="pic child">
+                <img src="class5.jpg" height="200px"/>
+            </div>
+            <div class="pic family">
+                <img src="room5.jpg" height="200px"/>
+            </div>
+            <div class="pic family">
+                <img src="room6.jpg" height="200px"/>
+            </div>
+            <div class="pic family">
+                <img src="room7.jpg" height="200px"/>
+            </div>
+
+        </div>
+    </div>
+</body>
+</html>
